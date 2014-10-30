@@ -1,0 +1,1 @@
+*/58 * * * * root /usr/sbin/tinc-myvpn-check

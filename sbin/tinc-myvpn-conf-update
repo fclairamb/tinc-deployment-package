@@ -1,0 +1,12 @@
+#!/bin/sh
+NETNAME=myvpn
+CONF_FILE=/etc/tinc/$NETNAME/tinc.conf
+printf "# This is an automatic configuration file. Do not modify it manually.
+# You can add host-specific setup into the conf.d directory.
+" >${CONF_FILE}
+cd /etc/tinc/$NETNAME/
+for f in $(ls conf.d/*)
+do
+   printf "\n# $f\n" >>${CONF_FILE}
+   cat $f >>${CONF_FILE}
+done

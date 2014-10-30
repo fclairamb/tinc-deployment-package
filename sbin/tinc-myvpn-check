@@ -1,0 +1,6 @@
+#!/bin/sh 
+NET=myvpn
+export PATH=$PATH:/sbin:/usr/sbin
+/etc/init.d/tinc start >/dev/null 2>/dev/null
+/sbin/ifconfig $NET up
+INTERFACE=$NET /etc/tinc/$NET/tinc-up
